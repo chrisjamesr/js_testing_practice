@@ -27,15 +27,7 @@ describe('The query package', function() {
             });  
         });
         
-        it('Eliminates all undefined and null values', ()=> {
-            const queryObject = {
-                by: 'chris-r',
-                popular: undefined,
-                unanswered: null
-            };
-
-            assert.deepEqual(stringify(queryObject, 'by=chris-r'));
-        });        
+              
     });
 
     describe('The stringify function', function(){
@@ -55,6 +47,17 @@ describe('The query package', function() {
 
             assert.deepEqual(stringify( {test: true}), 'test=true' );
         });
+
+        it('Eliminates all undefined and null values', ()=> {
+            const queryObject = {
+                by: 'chris-r',
+                popular: undefined,
+                unanswered: null
+            };
+            
+            assert.equal(stringify(queryObject), 'by=chris-r');
+        });  
+
     });
 
 });
