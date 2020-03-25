@@ -32,7 +32,7 @@ describe('the async tests', () => {
             });
         });
 
-        it.only('should return use found by id', async () => {
+        it('should return user found by id', async () => {
             const result = await findUserById(1);
             assert.equal(result.user.name, 'chris');
 
@@ -48,5 +48,19 @@ describe('the async tests', () => {
 
             })
         })
+        
+        it('should return user found by email', async () => {
+        
+            const result = await findUserByEmail('kelly@email.com');
+
+            assert.equal(result.user.name, 'kelly'); 
+        
+        });
+
+        it('should return an error if no user found by email', async () => { 
+            const result = await findUserByEmail('steve@email.com').catch(error => {
+                assert.equal(error.message, 'User with email: steve@email.com was not found'); 
+            });
+        });
     });
 });
