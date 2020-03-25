@@ -22,11 +22,20 @@ describe('The query package', function() {
         });
 
         it('Should return an object: {number: 3} when ?number=3 is passed into it', function (){
-            assert.deepEqual(parse('?number=3'), {
+            assert.deepEqual(parse('number=3'), {
                 number:3
             });  
         });
+        
+        it('Eliminates all undefined and null values', ()=> {
+            const queryObject = {
+                by: 'chris-r',
+                popular: undefined,
+                unanswered: null
+            };
 
+            assert.deepEqual(stringify(queryObject, 'by=chris-r'));
+        });        
     });
 
     describe('The stringify function', function(){
