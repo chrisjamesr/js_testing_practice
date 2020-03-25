@@ -1,9 +1,9 @@
-const users = require('./db/users');
+const users = require('../db/users');
 
 const findUserById = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const user = users.find(use = user.id == id);
+            const user = users.find(user => user.id == id);
 
             if (!user) {
                 return reject(new Error(`User with id: ${id} was not found`));
@@ -23,7 +23,7 @@ const findUserByEmail = (email) => {
             const user = users.find(user => user.email == email)
 
             if (!user) {
-                return reject(new Error(`User with email: ${email} was not found`));
+                return reject(new Error(`User with email: ${email} was not found`));           
             }              
 
             return resolve({
@@ -34,3 +34,6 @@ const findUserByEmail = (email) => {
     })
 }
 
+module.exports = {
+    findUserById, findUserByEmail
+};
