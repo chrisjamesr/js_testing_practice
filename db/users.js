@@ -1,4 +1,4 @@
-users = [
+module.exports = [
     {
         id: 1,
         name: 'chris',
@@ -33,4 +33,3 @@ users = [
         email: 'tori@email.com'
     }
 ]
-module.exports = {users}
