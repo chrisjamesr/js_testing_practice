@@ -14,7 +14,7 @@ describe('the async tests', () => {
 
             });
         });
-        
+
         it.only('should return found user data by id', (done) => {
             // calls done on promise return 
             findUserById(1).then(result => {
@@ -27,5 +27,15 @@ describe('the async tests', () => {
 
             });
         });
+    });
+
+    describe('the findUserByEmail function', () => {
+        it.only('should return found user data by email', () => {
+
+            return findUserByEmail('zack@email.com').then(result => {
+                console.log('working...done...', result);
+                assert.equal(result.user.name, 'zack');
+            })
+        })
     });
 });
