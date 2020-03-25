@@ -22,9 +22,11 @@ describe('The query package', function() {
         });
 
         it('Should return an object: {number: 3} when ?number=3 is passed into it', function (){
-          assert.deepEqual(parse('?number=3'), {number:3})  
+            assert.deepEqual(parse('?number=3'), {
+                number:3
+            });  
         });
-        
+
     });
 
     describe('The stringify function', function(){
