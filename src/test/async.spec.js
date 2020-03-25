@@ -31,6 +31,12 @@ describe('the async tests', () => {
        
             });
         });
+
+        it.only('should return use found by id', async () => {
+            const result = await findUserById(1);
+            assert.equal(result.user.name, 'chris');
+
+        });
     });
 
     describe('the findUserByEmail function', () => {
