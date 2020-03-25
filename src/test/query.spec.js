@@ -41,6 +41,11 @@ describe('The query package', function() {
             
             assert.equal(actual, expectation);
         });
+
+        it('Should return a simple query string from a single key value pair', function () {
+
+            assert.deepEqual(stringify( {test: true}), 'test=true' );
+        });
     });
 
 });
