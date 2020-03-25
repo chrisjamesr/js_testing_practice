@@ -15,7 +15,7 @@ describe("The 'add' function tests", function(){
     it('Should throw an error if not given arguments', function () {
         
         assert.throws( () => {
-            add(1,2 ); 
+            add(); 
         });
 
     })
