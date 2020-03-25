@@ -26,11 +26,11 @@ describe('The query package', function() {
         it('Should return a properly formatted query string when given an object query parameters', function() {
             const object = {
                 by: 'chris-r', 
-                popular: "true", 
+                sort: "popular", 
                 category: 'nodejs'
             };
             const actual = stringify(object);
-            const expectation = 'by=chris-r&popular=true&category=nodejs';
+            const expectation = 'by=chris-r&sort=popular&category=nodejs';
             
             assert.equal(actual, expectation);
         });
