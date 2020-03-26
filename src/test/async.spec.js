@@ -25,16 +25,19 @@ describe('the async tests', () => {
         });
 
         it('should throw an error if user was not found', async () => {
-            try {
+            const result = await findUserById(1000).catch(error => {
+                assert.equal(error.message, 'User with id: 1000 was not found'); 
+            });
+            // try {
 
-                await findUserById(1000)
-                assert.fail('EXPECTED_ERROR');
+            //     await findUserById(1000)
+            //     assert.fail('EXPECTED_ERROR');
 
-            } catch (error) {
+            // } catch (error) {
 
-                assert.equal(error.message, `User with id: 1000 was not found`)
+            //     assert.equal(error.message, `User with id: 1000 was not found`)
        
-            }
+            // }
         });
 
         it('should return user found by id', async () => {
@@ -64,19 +67,21 @@ describe('the async tests', () => {
         });
 
         it('should return an error if no user found by email', async () => { 
-            // const result = await findUserByEmail('steve@email.com').catch(error => {
-            //     assert.equal(error.message, 'User with email: steve@email.com was not found'); 
-            // });
-
-            try {
-
-                await findUserByEmail('steve@email.com')
-                assert.fail('EXPECTED_ERROR');
-            } catch (error) {
-
+            const result = await findUserByEmail('steve@email.com').catch(error => {
                 assert.equal(error.message, 'User with email: steve@email.com was not found'); 
+            });
 
-            }
+            // try {
+
+            //     await findUserByEmail('steve@email.com')
+
+            //     assert.fail('EXPECTED_ERROR');
+
+            // } catch (error) {
+
+            //     assert.equal(error.message, 'User with email: steve@email.com was not found'); 
+
+            // }
 
         });
     });
