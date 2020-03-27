@@ -18,7 +18,7 @@ describe('the async tests', () => {
             findUserById(1).then(result => {
             
                 assert.equal(result.user.name, 'chris');
-
+                                                                                                                             
                 done()
 
             });
