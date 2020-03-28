@@ -1,4 +1,4 @@
-const assert = require('assert');
+// const assert = require('assert');
 
 const {parse, stringify} = require('../query');
 
@@ -17,14 +17,16 @@ describe('The query package', function() {
                 category: 'nodejs'
             };
             
-            assert.deepEqual(actual,expectation)
+            // assert.deepEqual(actual,expectation)
+            expect(actual).toEqual(expectation)
             
         });
 
         it('Should return an object: {number: 3} when ?number=3 is passed into it', function (){
-            assert.deepEqual(parse('number=3'), {
-                number:3
-            });  
+            // assert.deepEqual(parse('number=3'), {
+            //     number:3
+            // });  
+            expect(parse('number=3')).toEqual({ "number": "3" } )
         });
         
               
@@ -40,12 +42,14 @@ describe('The query package', function() {
             const actual = stringify(object);
             const expectation = 'by=chris-r&sort=popular&category=nodejs';
             
-            assert.equal(actual, expectation);
+            // assert.equal(actual, expectation);
+            expect(actual).toBe(expectation);
         });
 
         it('Should return a simple query string from a single key value pair', function () {
 
-            assert.deepEqual(stringify( {test: true}), 'test=true' );
+            // assert.deepEqual(stringify( {test: true}), 'test=true' );
+            expect(stringify({test: true})).toEqual('test=true');
         });
 
         it('Eliminates all undefined and null values', ()=> {
@@ -55,7 +59,8 @@ describe('The query package', function() {
                 unanswered: null
             };
             
-            assert.equal(stringify(queryObject), 'by=chris-r');
+            // assert.equal(stringify(queryObject), 'by=chris-r');
+            expect(stringify(queryObject)).toEqual('by=chris-r');
         });  
 
     });
